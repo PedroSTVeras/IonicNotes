@@ -13,7 +13,7 @@ export class Note {
     constructor(title: string) {
 
         this.title = title;
-        this.modificationDate = '26/10/18'
+        this.modificationDate = ' '
 
     }
 
