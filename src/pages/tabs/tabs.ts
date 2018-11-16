@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
+import { CreatePage } from '../create/create';
 import { ListPage } from '../list/list';
 import { ConfigPage } from '../config/config';
-import { CreatePage } from '../create/create';
-import { EditPage } from '../edit/edit';
+
+import { Events, Tabs } from 'ionic-angular';
 
 @Component({
   templateUrl: 'tabs.html'
 })
+
 export class TabsPage {
 
   tab1Root = CreatePage;
@@ -15,7 +17,14 @@ export class TabsPage {
   tab3Root = ConfigPage;
 
 
-  constructor() {
+  @ViewChild('myTabs') tabRef: Tabs;
+    constructor(public events: Events) 
+    {
+        events.subscribe('tab:clicked', (data) => 
+        {
+            this.tabRef.select(data['tab']);
+        });
+    }
 
-  }
+  
 }
