@@ -12,15 +12,13 @@ import { CreatePage } from '../create/create';
 export class ListPage {
 
   noteList: List;
-  note1: Note;
-  note2: Note;
-  note3: Note;
+  noteAux: Note;
   
   constructor(public navCtrl: NavController) {
     this.noteList = new List(navCtrl);
-    this.note1 = new Note('nota1');
 
-    this.noteList.Add(this.note1);
+    this.noteAux = new Note('New Note');
+    this.noteList.Add(this.noteAux);
 
 
   }
