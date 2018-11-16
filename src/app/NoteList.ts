@@ -1,6 +1,6 @@
 
 import { Note } from "./Note";
-import { NavController } from 'ionic-angular';
+import { NavController } from 'ionic-angular/umd';
 import { CreatePage } from "../pages/create/create";
 import { EditPage } from "../pages/edit/edit";
 

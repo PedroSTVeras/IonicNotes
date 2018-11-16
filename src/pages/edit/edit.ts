@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Note } from '../../app/Note';
-import { List } from '../../app/List';
+import { List } from '../../app/NoteList';
 import { ListPage } from '../list/list';
 
 @Component({
