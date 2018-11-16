@@ -3,7 +3,7 @@ import { CreatePage } from "../pages/create/create";
 
 export class Note {
 
-
+    icon: string;
     title: string;
     text: string;
     creationDate: string;
@@ -14,18 +14,12 @@ export class Note {
 
         this.title = title;
         this.modificationDate = ' '
-
+        this.icon = "paper";
     }
 
     Print() {
 
     }
 
-    /* Edit() {
-
-        this.navCtrl.push(NotePage)
-        console.log(this.title);
-         
-    } */
 
 }

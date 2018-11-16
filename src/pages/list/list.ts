@@ -18,6 +18,7 @@ export class ListPage {
     this.noteList = new List(navCtrl);
 
     this.noteAux = new Note('New Note');
+    this.noteAux.icon = "add-circle";
     this.noteList.Add(this.noteAux);
 
 

@@ -11,6 +11,7 @@
   <ion-list inset id="list">
     <div *ngIf="noteList">
       <button ion-item *ngFor="let note of noteList.list" (click)="noteList.Edit(note.title)" id="button">
+        <ion-icon name={{note.icon}} item-start></ion-icon>
         {{note.title}}
         <div id="date">{{note.modificationDate}}</div>
 
