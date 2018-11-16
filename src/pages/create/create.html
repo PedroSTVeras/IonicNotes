@@ -1,39 +1,28 @@
 <ion-header id="header">
   <ion-navbar>
-    <ion-title id="title">New Note</ion-title>
+    <ion-title id="title">Note</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-item id="noteTitle">Title</ion-item>
-  <ion-card id="textArea">
-    
-    
+<ion-content no-bounce>
+
+  <!--Title-->
+  <ion-card id="textArea"> 
     <div *ngIf="note">
-      <ion-textarea [(ngModel)]="note.text" id="text" rows="20">bbb</ion-textarea>
+      <ion-textarea [(ngModel)]="note.title" id="text" rows="1"></ion-textarea>
     </div>
   </ion-card>
 
-  <button ion-button (click)="Save()" id="saveButton">Save</button>
+  <!--Text-->
+  <ion-card id="textArea"> 
+    <div *ngIf="note">
+      <ion-textarea [(ngModel)]="note.text" id="text" rows="20"></ion-textarea>
+    </div>
+  </ion-card>
 
-
-</ion-content>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <ion-content padding>
+  <!--Save Button-->
+  <button ion-button (click)="Save()" id="saveButton">
+    Save
+  </button>
   
-</ion-content> -->
+</ion-content>

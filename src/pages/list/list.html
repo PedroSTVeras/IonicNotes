@@ -9,9 +9,10 @@
 
 <ion-content #content>
   <ion-list inset id="list">
+    <!--List of Notes-->
     <div *ngIf="noteList">
 
-      <button ion-item *ngFor="let note of noteList.list" (click)="goToCreate()" id="button">
+      <button ion-item *ngFor="let note of noteList.list" (click)="loadNote()" id="button">
         <ion-icon name={{note.icon}} item-start></ion-icon>
         {{note.title}}
         <div id="date">{{note.modificationDate}}</div>
@@ -19,6 +20,7 @@
 
     </div>
 
+    <!--New Note Button-->
     <div>
       <button ion-item *ngFor="let note of noteList.list" (click)="goToCreate()" id="button">
         <ion-icon name={{noteAdd.icon}} item-start></ion-icon>

@@ -7,8 +7,7 @@ export class Note {
     title: string;
     text: string;
     creationDate: string;
-    modificationDate: string;
-    
+    modificationDate: string;    
 
     constructor(title: string) {
 

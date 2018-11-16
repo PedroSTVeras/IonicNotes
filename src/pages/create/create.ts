@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,NavParams } from 'ionic-angular';
+
 import { Note } from '../../app/Note';
-import { List } from '../../app/NoteList';
-import { ListPage } from '../list/list';
+import { Events } from 'ionic-angular';
 
 @Component({
   selector: 'page-create',
@@ -11,25 +11,19 @@ import { ListPage } from '../list/list';
 export class CreatePage {
 
   note: Note;
-  listPage: ListPage;
-
-  constructor(public navCtrl: NavController) {
-    //this.title = document.getElementById("noteTitle");
-    this.note = new Note("Teste");
+  constructor(public navCtrl: NavController,public events: Events) {
+    this.note = new Note("");
   }
 
-  New() {
-    //this.note = new Note();
+  Load(){
+    this.events.subscribe('note:created', (p_note) => {
+      this.note = p_note;
+    });
   }
 
   Save() {
+    this.events.publish('tab:clicked',{tab:1});
 
-    //this.note.title =
-    console.log(this.note);
-
-
-    console.log("salvou");
-    //noteList.Add(this.note)
   }
 
 }

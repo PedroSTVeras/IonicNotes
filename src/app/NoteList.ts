@@ -29,7 +29,7 @@ export class List {
             this.list.splice(index, 1);
     }
 
-    Edit(title: string) {
+/*     Edit(title: string) {
         for (let i = 0; i < this.list.length; i++) {
             let n: Note = this.list[i];
             if (n.title == title) {
@@ -37,7 +37,7 @@ export class List {
                 //this.navCtrl.push(CreatePage);
             }
         }
-    }
+    } */
 
     Get(title: string): Note {
         for (let i = 0; i < this.list.length; i++) {
