@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title id="title">
+      Lista
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list inset id="list">
+    <div *ngIf="noteList">
+      <button ion-item *ngFor="let note of noteList.list" (click)="noteList.Edit(note.title)" id="button">
+        {{note.title}}
+        <div id="date">{{note.modificationDate}}</div>
+
+
+      </button>
+    </div>
+  </ion-list>
+</ion-content>

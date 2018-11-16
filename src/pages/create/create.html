@@ -1,0 +1,39 @@
+<ion-header id="header">
+  <ion-navbar>
+    <ion-title id="title">Criar Novo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item id="noteTitle">Título</ion-item>
+  <ion-card id="textArea">
+    
+    
+    <div *ngIf="note">
+      <ion-textarea [(ngModel)]="note.text" id="text" rows="20">bbb</ion-textarea>
+    </div>
+  </ion-card>
+
+  <button ion-button (click)="Save()" id="saveButton">Salvar</button>
+
+
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-content padding>
+  
+</ion-content> -->
