@@ -17,7 +17,8 @@ export class CreatePage {
 
   constructor(public alertCtrl: AlertController, navParams:NavParams, public navCtrl: NavController,public events: Events) {
     
-    this.note = new Note('New Note', '');
+    this.note = new Note('Note 1', '');
+    this.note.icon = "add-circle";
 
     events.subscribe('note:edit', (p_note) => 
     {
@@ -26,6 +27,7 @@ export class CreatePage {
   }
 
   Save(p_note: Note) {
+    console.log(p_note.icon);
     if(p_note.icon == "add-circle"){
       this.events.publish('note:new', p_note);
     }
@@ -33,7 +35,9 @@ export class CreatePage {
   }
 
   Delete(p_note: Note) {
-    this.events.publish('note:delete', p_note);
+    if(p_note.icon == "paper"){
+      this.events.publish('note:delete', p_note);
+    }
     this.events.publish('tab:clicked',{tab:1});
   }
 

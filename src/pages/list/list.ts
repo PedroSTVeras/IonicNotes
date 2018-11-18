@@ -12,6 +12,8 @@ import { List } from '../../app/NoteList';
 
 export class ListPage {
 
+  noteNum = 1;
+
   noteList: List;
   noteAdd: Note;
   noteAux: Note;
@@ -29,15 +31,10 @@ export class ListPage {
       this.noteAux = p_note;
       this.noteAux.icon = "paper";
       this.noteList.Add(p_note);
+      this.noteNum++;
 
       this.noteAdd = new Note('New Note', '');
       this.noteAdd.icon = "add-circle";
-    });
-
-    //Save note
-    events.subscribe('note:save', (p_note) => 
-    {
-      //this.noteList.Add(p_note);
     });
 
     //Delete note
@@ -55,7 +52,9 @@ export class ListPage {
 
   //Change to create tab
   createNewNote(){
-    this.events.publish('note:edit', this.noteAdd);
+    this.noteAux = new Note("Note " + this.noteNum, '');
+    this.noteAux.icon = "add-circle";
+    this.events.publish('note:edit', this.noteAux);
     this.events.publish('tab:clicked',{tab:0});
   }
 
