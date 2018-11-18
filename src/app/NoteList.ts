@@ -1,7 +1,6 @@
 import { NavController } from 'ionic-angular';
 
 import { CreatePage } from "../pages/create/create";
-import { EditPage } from "../pages/edit/edit";
 import { Note } from "./Note";
 
 export class List {

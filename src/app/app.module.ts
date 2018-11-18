@@ -6,7 +6,6 @@ import { MyApp } from './app.component';
 import { ListPage } from '../pages/list/list';
 import { ConfigPage } from '../pages/config/config';
 import { CreatePage } from '../pages/create/create';
-import { EditPage } from '../pages/edit/edit';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -19,7 +18,6 @@ import { ProvidertesteProvider } from '../providers/providerteste/providerteste'
     ListPage,
     ConfigPage,
     CreatePage,
-    EditPage,
     TabsPage
   ],
   imports: [
@@ -32,7 +30,6 @@ import { ProvidertesteProvider } from '../providers/providerteste/providerteste'
     ListPage,
     ConfigPage,
     CreatePage,
-    EditPage,
     TabsPage
   ],
   providers: [

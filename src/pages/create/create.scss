@@ -11,8 +11,12 @@ page-create {
     text-align: center;
     font-size: 150%;
   }
-  #saveButton {
+  #deleteButton {
     float: right;
     margin-right: 3%;
+  }
+  #saveButton {
+    float: left;
+    margin-left: 3%;
   }
 }
