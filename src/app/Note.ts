@@ -9,16 +9,12 @@ export class Note {
     creationDate: string;
     modificationDate: string;    
 
-    constructor(title: string) {
+    constructor(title: string,text: string) {
 
         this.title = title;
+        this.text = text;
         this.modificationDate = ' '
         this.icon = "paper";
     }
-
-    Print() {
-
-    }
-
 
 }

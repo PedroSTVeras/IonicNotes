@@ -4,6 +4,8 @@ import { NavController,NavParams } from 'ionic-angular';
 import { Note } from '../../app/Note';
 import { Events } from 'ionic-angular';
 
+import { AlertController } from 'ionic-angular';
+
 @Component({
   selector: 'page-create',
   templateUrl: 'create.html'
@@ -13,20 +15,42 @@ export class CreatePage {
   note: Note;
   text: string;
 
-  constructor(navParams:NavParams, public navCtrl: NavController,public events: Events) {
-    this.text = navParams.get('text');
-    this.note = new Note(this.text);
-  }
+  constructor(public alertCtrl: AlertController, navParams:NavParams, public navCtrl: NavController,public events: Events) {
+    
+    this.note = new Note('New Note', '');
 
-  Load(){
-    this.events.subscribe('note:created', (p_note) => {
+    events.subscribe('note:edit', (p_note) => 
+    {
       this.note = p_note;
     });
   }
 
-  Save() {
+  Save(p_note: Note) {
+    if(p_note.icon == "add-circle"){
+      this.events.publish('note:new', p_note);
+    }
     this.events.publish('tab:clicked',{tab:1});
+  }
 
+  Delete(p_note: Note) {
+    this.events.publish('note:delete', p_note);
+    this.events.publish('tab:clicked',{tab:1});
+  }
+
+  NoTitle() {
+    let alert = this.alertCtrl.create({
+      title: 'Your note needs a title',
+      buttons: [
+        {
+          text: 'Ok',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }

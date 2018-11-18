@@ -20,22 +20,42 @@ export class ListPage {
     this.noteList = new List(navCtrl);
 
     //Create new note button
-    this.noteAdd = new Note('New Note');
+    this.noteAdd = new Note('New Note', '');
     this.noteAdd.icon = "add-circle";
 
-    //Create example note
-    this.noteAux = new Note('To Do');
-    this.noteAux.text = "- Make notes" 
-    this.noteList.Add(this.noteAux);
+    //New note
+    events.subscribe('note:new', (p_note) => 
+    {
+      this.noteAux = p_note;
+      this.noteAux.icon = "paper";
+      this.noteList.Add(p_note);
+
+      this.noteAdd = new Note('New Note', '');
+      this.noteAdd.icon = "add-circle";
+    });
+
+    //Save note
+    events.subscribe('note:save', (p_note) => 
+    {
+      //this.noteList.Add(p_note);
+    });
+
+    //Delete note
+    events.subscribe('note:delete', (p_note) => 
+    {
+      this.noteList.Delete(p_note);
+    });    
   }
 
   //Loads selected note
   loadNote(p_note: Note){
+    this.events.publish('note:edit', p_note);
     this.events.publish('tab:clicked', {tab:0});
   }
 
   //Change to create tab
   createNewNote(){
+    this.events.publish('note:edit', this.noteAdd);
     this.events.publish('tab:clicked',{tab:0});
   }
 
