@@ -31,12 +31,11 @@ export class ListPage {
 
   //Loads selected note
   loadNote(p_note: Note){
-    this.events.publish('note:created', p_note);
     this.events.publish('tab:clicked', {tab:0});
   }
 
   //Change to create tab
-  goToCreate(){
+  createNewNote(){
     this.events.publish('tab:clicked',{tab:0});
   }
 

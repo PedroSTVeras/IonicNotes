@@ -16,20 +16,23 @@ import { List } from '../../app/NoteList';
 
 export class TabsPage {
 
-  tab1Root = CreatePage;
-  tab2Root = ListPage;
-  tab3Root = ConfigPage;
-  
-  noteList: List;
+    tab1Root = CreatePage;
+    tab1Params = { text: "abc" };
+    
+    tab2Root = ListPage;
+    tab2Params = { text: "abc" };
 
-  @ViewChild('myTabs') tabRef: Tabs;
+    tab3Root = ConfigPage;   
+
+
+    @ViewChild('myTabs') tabRef: Tabs;
     constructor(public events: Events) 
     {
         events.subscribe('tab:clicked', (data) => 
         {
             this.tabRef.select(data['tab']);
         });
-    }
+    } 
 
   
 }

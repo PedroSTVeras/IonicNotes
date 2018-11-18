@@ -11,8 +11,11 @@ import { Events } from 'ionic-angular';
 export class CreatePage {
 
   note: Note;
-  constructor(public navCtrl: NavController,public events: Events) {
-    this.note = new Note("");
+  text: string;
+
+  constructor(navParams:NavParams, public navCtrl: NavController,public events: Events) {
+    this.text = navParams.get('text');
+    this.note = new Note(this.text);
   }
 
   Load(){

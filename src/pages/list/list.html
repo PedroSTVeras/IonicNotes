@@ -22,7 +22,7 @@
 
     <!--New Note Button-->
     <div>
-      <button ion-item *ngFor="let note of noteList.list" (click)="goToCreate()" id="button">
+      <button ion-item *ngFor="let note of noteList.list" (click)="createNewNote()" id="button">
         <ion-icon name={{noteAdd.icon}} item-start></ion-icon>
         {{noteAdd.title}}
       </button>
