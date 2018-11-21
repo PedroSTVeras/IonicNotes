@@ -1,7 +1,13 @@
 <ion-header>
   <ion-navbar>
     <ion-title id="title">
-      List
+      <img id="logo" src="../../assets/imgs/unisinos.png">        
+      
+      <span id="name">List</span>
+      
+      <button ion-button clear id="add" (click)="createNewNote()">
+        <ion-icon name="add-circle" id="icon" color="dark"></ion-icon>
+      </button>
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -14,18 +20,10 @@
 
       <button ion-item *ngFor="let note of noteList.list" (click)="loadNote(note)" id="button">
         <ion-icon name={{note.icon}} item-start></ion-icon>
-        {{note.title}}
+          {{note.title}}
         <div id="date">{{note.modificationDate}}</div>
       </button>
 
-    </div>
-
-    <!--New Note Button-->
-    <div>
-      <button ion-item (click)="createNewNote()" id="button">
-        <ion-icon name={{noteAdd.icon}} item-start></ion-icon>
-        {{noteAdd.title}}
-      </button>
     </div>
 
   </ion-list>

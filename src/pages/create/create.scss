@@ -1,12 +1,4 @@
 page-create {
-  #header {
-    height: 50px;
-   
-  }
-  #title {
-    text-align: center;
-    font-size: 300%;
-  }
   #noteTitle {
     text-align: center;
     font-size: 150%;
@@ -18,5 +10,25 @@ page-create {
   #saveButton {
     float: left;
     margin-left: 3%;
+  }
+
+  //Title
+  #title {
+    text-align: center;
+  }
+  #add {
+      float: right;
+  }
+  #logo {
+      float: left;
+      margin-top: 2%;
+  }
+  #icon{
+      transform: scale(1.5);
+  }
+  #name {
+      float: left;
+      margin-left: 35%;
+      margin-top: 3%;
   }
 }

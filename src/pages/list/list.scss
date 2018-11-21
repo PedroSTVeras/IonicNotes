@@ -1,8 +1,25 @@
 page-list {
+    #list #button #date #add{
+        float: right;
+    }
+
+    //Title
     #title {
         text-align: center;
     }
-    #list #button #date{
-        float:right;
+    #add {
+        float: right;
+    }
+    #logo {
+        float: left;
+        margin-top: 2%;
+    }
+    #icon{
+        transform: scale(1.5);
+    }
+    #name {
+        float: left;
+        margin-left: 35%;
+        margin-top: 3%;
     }
 }

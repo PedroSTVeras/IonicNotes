@@ -1,8 +1,16 @@
-<ion-header id="header">
-  <ion-navbar>
-    <ion-title id="title">Note</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-header>
+    <ion-navbar>
+      <ion-title id="title">
+        <img id="logo" src="../../assets/imgs/unisinos.png">        
+        
+        <span id="name">Note</span>
+        
+        <button ion-button clear id="add" (click)="createNewNote()">
+          <ion-icon name="add-circle" id="icon" color="dark"></ion-icon>
+        </button>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
 
 <ion-content no-bounce>
 
