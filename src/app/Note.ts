@@ -13,7 +13,7 @@ export class Note {
 
         this.title = title;
         this.text = text;
-        this.modificationDate = ' '
+        this.modificationDate = '01/01/2018'
         this.icon = "paper";
     }
 

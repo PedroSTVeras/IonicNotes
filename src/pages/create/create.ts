@@ -29,6 +29,8 @@ export class CreatePage {
 
   Save(p_note: Note) {
     if(p_note.icon == "add-circle"){
+      p_note.modificationDate = new Date().toISOString();
+      console.log(new Date().toISOString());
       this.events.publish('note:new', p_note);
     }
     this.events.publish('tab:clicked',{tab:1});
