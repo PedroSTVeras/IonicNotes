@@ -14,10 +14,11 @@ export class CreatePage {
 
   note: Note;
   text: string;
-
+  noteAux: Note;
+  
   constructor(public alertCtrl: AlertController, navParams:NavParams, public navCtrl: NavController,public events: Events) {
     
-    this.note = new Note('Note 1', '');
+    this.note = new Note('Note', '');
     this.note.icon = "add-circle";
 
     events.subscribe('note:edit', (p_note) => 
@@ -27,7 +28,6 @@ export class CreatePage {
   }
 
   Save(p_note: Note) {
-    console.log(p_note.icon);
     if(p_note.icon == "add-circle"){
       this.events.publish('note:new', p_note);
     }
@@ -37,6 +37,7 @@ export class CreatePage {
   Delete(p_note: Note) {
     if(p_note.icon == "paper"){
       this.events.publish('note:delete', p_note);
+      this.createNewNote();
     }
     this.events.publish('tab:clicked',{tab:1});
   }
@@ -57,4 +58,12 @@ export class CreatePage {
     alert.present();
   }
 
+
+    //Change to create tab
+    createNewNote(){
+      this.noteAux = new Note("Note",'');
+      this.noteAux.icon = "add-circle";
+      this.events.publish('note:edit', this.noteAux);
+      this.events.publish('tab:clicked',{tab:0});
+    }
 }
