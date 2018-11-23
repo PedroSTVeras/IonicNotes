@@ -7,13 +7,13 @@ export class Note {
     title: string;
     text: string;
     creationDate: string;
-    modificationDate: string;    
+    modificationDate: Date;    
 
     constructor(title: string,text: string) {
 
         this.title = title;
         this.text = text;
-        this.modificationDate = '01/01/2018'
+        this.modificationDate = new Date();
         this.icon = "paper";
     }
 
