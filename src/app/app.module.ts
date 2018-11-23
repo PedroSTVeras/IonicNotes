@@ -12,6 +12,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProvidertesteProvider } from '../providers/providerteste/providerteste';
 
+import { Camera } from '@ionic-native/camera';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -36,7 +38,9 @@ import { ProvidertesteProvider } from '../providers/providerteste/providerteste'
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ProvidertesteProvider
+    ProvidertesteProvider,
+    Camera
   ]
 })
+
 export class AppModule {}

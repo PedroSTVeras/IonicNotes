@@ -38,7 +38,7 @@ export class TabsPage {
     } 
 
     tab1Root = CreatePage;
-    tab1Params = { note: this.currentNote };
+    tabam1Pars = { note: this.currentNote };
     
     tab2Root = ListPage;
     tab2Params = { note: this.currentNote };
