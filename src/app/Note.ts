@@ -6,8 +6,8 @@ export class Note {
     icon: string;
     title: string;
     text: string;
-    creationDate: string;
     modificationDate: Date;    
+    key: string;
 
     constructor(title: string,text: string) {
 

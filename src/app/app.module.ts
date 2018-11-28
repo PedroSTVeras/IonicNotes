@@ -13,6 +13,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProvidertesteProvider } from '../providers/providerteste/providerteste';
 
 import { Camera } from '@ionic-native/camera';
+import { NoteNameProvider } from '../providers/note-name/note-name';
+
+import{ AngularFireModule } from 'angularfire2';
+import{ AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,16 @@ import { Camera } from '@ionic-native/camera';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyDib7USXdsAkIMC5UYbnV7sXJ-bFBljMBY",
+      authDomain: "ionic-notes-42316.firebaseapp.com",
+      databaseURL: "https://ionic-notes-42316.firebaseio.com",
+      projectId: "ionic-notes-42316",
+      storageBucket: "ionic-notes-42316.appspot.com",
+      messagingSenderId: "1061587103755"
+    }),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,7 +52,8 @@ import { Camera } from '@ionic-native/camera';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProvidertesteProvider,
-    Camera
+    Camera,
+    NoteNameProvider
   ]
 })
 
