@@ -19,7 +19,7 @@ export class ConfigPage {
 
   //Change to create tab
   createNewNote(){
-    this.noteAux = new Note("Note", '');
+    this.noteAux = new Note("New Note", '');
     this.noteAux.icon = "add-circle";
     this.events.publish('note:edit', this.noteAux);
     this.events.publish('tab:clicked',{tab:0});

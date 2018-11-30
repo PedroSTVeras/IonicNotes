@@ -14,14 +14,14 @@
 
 
 <ion-content #content>
-  <ion-list inset id="list">
+  <ion-list inset id="list" *ngFor="let note of noteList | async">
     <!--List of Notes-->
-    <div *ngIf="noteList">
+    <div>
 
-      <button ion-item *ngFor="let note of noteList.list" (click)="loadNote(note)" id="button">
-        <ion-icon name={{note.icon}} item-start></ion-icon>
-          {{note.title}}
-        <div id="date">{{note.modificationDate | date : 'dd/MM/yyyy HH:mm'}}</div>
+      <button ion-item (click)="loadNote(note)" id="button">
+        <ion-icon name="paper" item-start></ion-icon>
+          {{note.name}}
+        <div id="date">{{note.date | date : 'dd/MM/yyyy HH:mm'}}</div>
       </button>
 
     </div>

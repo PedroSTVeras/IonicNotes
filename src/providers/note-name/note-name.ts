@@ -4,8 +4,8 @@ import { HttpClient } from '@angular/common/http';
  
 @Injectable()
 export class NoteNameProvider {
-  private PATH = 'noteList.list/';
- 
+  private PATH = 'Note/';
+  currentDate : Date;
   constructor(private db: AngularFireDatabase) {
   }
  
@@ -24,19 +24,21 @@ export class NoteNameProvider {
       });
   }
  
-  save(contact: any) {
+  save(note: any) { 
+    this.currentDate = new Date();
     return new Promise((resolve, reject) => {
-      if (contact.key) {
+      if (note.key) {
         this.db.list(this.PATH)
-          .update(contact.key, { name: contact.name, tel: contact.tel })
-          .then(() => resolve())
-          .catch((e) => reject(e));
+        .update(note.key, { name: note.name, text: note.text, date: this.currentDate.toString() })
+        .then(() => resolve())
+        .catch((e) => reject(e));
+
       } else {
         this.db.list(this.PATH)
-          .push({ name: contact.name, tel: contact.tel })
-          .then(() => resolve());
+        .push({ name: note.name, text: note.text, date: this.currentDate.toString() })
+        .then(() => resolve());
       }
-    })
+    });
   }
  
   remove(key: string) {

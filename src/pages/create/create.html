@@ -14,28 +14,32 @@
 
 <ion-content no-bounce>
 
-  <!--Title-->
-  <ion-card id="textArea"> 
-    <div *ngIf="note">
-      <ion-textarea [(ngModel)]="note.title" id="text" rows="1"></ion-textarea>
-    </div>
-  </ion-card>
+  <form [formGroup]="form">
 
-  <!--Text-->
-  <ion-card id="textArea"> 
-    <div *ngIf="note">
-      <ion-textarea [(ngModel)]="note.text" id="text" rows="20"></ion-textarea>
-    </div>
-  </ion-card>
+    <!--Title-->
+    <ion-card id="textArea"> 
+      <div *ngIf="note">
+        <ion-textarea [(ngModel)]="note.name" id="text" rows="1" formControlName="name"></ion-textarea>
+      </div>
+    </ion-card>
 
-  <!--Save Button-->
-  <button ion-button (click)="Save(note)" id="saveButton">
-    Save
-  </button>
+    <!--Text-->
+    <ion-card id="textArea"> 
+      <div *ngIf="note">
+        <ion-textarea [(ngModel)]="note.text" id="text" rows="20" formControlName="text"></ion-textarea>
+      </div>
+    </ion-card>
 
-  <!--Delete Button-->
-  <button ion-button (click)="Delete(note)" id="deleteButton">
-    Delete
-  </button>
+    <!--Save Button-->
+    <button ion-button (click)="Save(note)" id="saveButton">
+      Save
+    </button>
+
+    <!--Delete Button-->
+    <button ion-button (click)="Delete(note)" id="deleteButton">
+      Delete
+    </button>
     
+  </form>  
+
 </ion-content>
